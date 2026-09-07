@@ -29,14 +29,16 @@ function closeDrawer() {
     if (mobileDrawer) mobileDrawer.classList.remove('open');
 }
 
-const galleryData = [
-    { src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85', category: 'pool', title: '14m Slate Infinity Pool at Sunset' },
-    { src: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=85', category: 'bedroom', title: 'Master Suite with Garden View' },
-    { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', category: 'villa', title: 'Teak Wood Open Lounge & Dining' },
-    { src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85', category: 'garden', title: 'Lush Private Tropical Grounds' },
-    { src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85', category: 'bedroom', title: 'Outdoor Carved Stone Bathtub' },
-    { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85', category: 'pool', title: 'Morning Sun over the Pool Deck' }
-];
+const galleryData = Array.isArray(window.galleryData) && window.galleryData.length
+    ? window.galleryData
+    : [
+        { src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85', category: 'pool', title: '14m Slate Infinity Pool at Sunset' },
+        { src: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=85', category: 'bedroom', title: 'Master Suite with Garden View' },
+        { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', category: 'villa', title: 'Teak Wood Open Lounge & Dining' },
+        { src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85', category: 'garden', title: 'Lush Private Tropical Grounds' },
+        { src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85', category: 'bedroom', title: 'Outdoor Carved Stone Bathtub' },
+        { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85', category: 'pool', title: 'Morning Sun over the Pool Deck' }
+    ];
 
 let currentLightboxIndex = 0;
 
@@ -231,9 +233,10 @@ function updateInlinePriceCalculation() {
         nights = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
     }
 
-    const rate = 4500000;
-    const cleaningFee = 650000;
-    const taxFee = 500000;
+    const config = window.villaConfig || {};
+    const rate = Number(config.base_rate || 4500000);
+    const cleaningFee = Number(config.cleaning_fee || 650000);
+    const taxFee = Number(config.tax_fee || 500000);
     const nightTotal = rate * nights;
     const grandTotal = nightTotal + cleaningFee + taxFee;
 

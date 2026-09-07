@@ -68,6 +68,22 @@ switch (true) {
         $admin->saveSeo();
         break;
 
+    case $uri === '/admin/villa' && $method === 'GET':
+        echo $admin->villa();
+        break;
+
+    case $uri === '/admin/villa' && $method === 'POST':
+        $admin->saveVilla();
+        break;
+
+    case $uri === '/admin/gallery' && $method === 'GET':
+        echo $admin->gallery();
+        break;
+
+    case $uri === '/admin/gallery' && $method === 'POST':
+        $admin->saveGallery();
+        break;
+
     case $uri === '/admin/footer' && $method === 'GET':
         echo $admin->footer();
         break;

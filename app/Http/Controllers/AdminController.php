@@ -139,6 +139,82 @@ class AdminController
         exit;
     }
 
+    public function villa()
+    {
+        $this->requireAuth();
+        $villa = Settings::get('villa');
+        $flash = $_SESSION['flash'] ?? '';
+        unset($_SESSION['flash']);
+        return adminView('admin.villa', compact('villa', 'flash'));
+    }
+
+    public function saveVilla()
+    {
+        $this->requireAuth();
+        Settings::save('villa', [
+            'name'         => trim($_POST['name'] ?? 'Villa Nirawa'),
+            'tagline'      => trim($_POST['tagline'] ?? 'A Private Place to Slow Down'),
+            'location'     => trim($_POST['location'] ?? 'Sayan, Ubud, Bali, Indonesia'),
+            'bedrooms'     => (int)($_POST['bedrooms'] ?? 3),
+            'max_guests'   => (int)($_POST['max_guests'] ?? 6),
+            'bathrooms'    => (int)($_POST['bathrooms'] ?? 3),
+            'pool_size'    => trim($_POST['pool_size'] ?? '14m Infinity Pool'),
+            'living_area'  => trim($_POST['living_area'] ?? '250 m²'),
+            'base_rate'    => (int)($_POST['base_rate'] ?? 4500000),
+            'cleaning_fee' => (int)($_POST['cleaning_fee'] ?? 650000),
+            'tax_fee'      => (int)($_POST['tax_fee'] ?? 500000),
+            'currency'     => trim($_POST['currency'] ?? 'IDR'),
+            'hero_image'   => trim($_POST['hero_image'] ?? 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85'),
+        ]);
+        $_SESSION['flash'] = 'Villa details saved successfully.';
+        session_write_close();
+        header('Location: /admin/villa');
+        exit;
+    }
+
+    public function gallery()
+    {
+        $this->requireAuth();
+        $gallery = Settings::get('gallery');
+        $flash = $_SESSION['flash'] ?? '';
+        unset($_SESSION['flash']);
+        return adminView('admin.gallery', compact('gallery', 'flash'));
+    }
+
+    public function saveGallery()
+    {
+        $this->requireAuth();
+
+        $gallery = [];
+        $items = $_POST['gallery'] ?? [];
+
+        foreach ($items as $item) {
+            $src = trim((string)($item['src'] ?? ''));
+            $title = trim((string)($item['title'] ?? ''));
+            $category = trim((string)($item['category'] ?? 'villa'));
+            if ($src === '' || $title === '') {
+                continue;
+            }
+
+            $gallery[] = [
+                'src' => $src,
+                'title' => $title,
+                'category' => strtolower($category),
+                'large' => !empty($item['large']) && $item['large'] === '1',
+            ];
+        }
+
+        if (empty($gallery)) {
+            $gallery = Settings::get('gallery');
+        }
+
+        Settings::save('gallery', $gallery);
+        $_SESSION['flash'] = 'Gallery updated successfully.';
+        session_write_close();
+        header('Location: /admin/gallery');
+        exit;
+    }
+
     public function footer()
     {
         $this->requireAuth();

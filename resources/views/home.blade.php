@@ -1,5 +1,8 @@
 <?php
+use App\Models\Settings;
 use App\Models\Villa;
+
+$galleryItems = Settings::get('gallery');
 $title = $seo['title'] ?? 'Villa Nirawa — Private Luxury Villa in Ubud, Bali';
 ?>
     <!-- Header Navigation -->
@@ -54,10 +57,10 @@ $title = $seo['title'] ?? 'Villa Nirawa — Private Luxury Villa in Ubud, Bali';
     <!-- Hero -->
     <section class="hero-section" id="hero">
         <div class="hero-bg-overlay"></div>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85" alt="Villa Nirawa Pool" class="hero-img">
+        <img src="<?php echo htmlspecialchars($villa['hero_image'] ?? 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85'); ?>" alt="<?php echo htmlspecialchars($villa['name'] ?? 'Villa Nirawa'); ?> Pool" class="hero-img">
         <div class="hero-content">
             <span class="hero-subtitle"><?php echo htmlspecialchars($villa['location']); ?></span>
-            <h1 class="hero-title">A Private Place<br>to Slow Down</h1>
+            <h1 class="hero-title"><?php echo nl2br(htmlspecialchars($villa['tagline'] ?? 'A Private Place<br>to Slow Down')); ?></h1>
             <p class="hero-desc">Designed for quiet mornings, long poolside afternoons, and evenings framed by jungle breezes.</p>
             <div class="hero-btn-group">
                 <a href="#villa" class="btn btn-secondary">Explore the Villa</a>
@@ -144,30 +147,18 @@ $title = $seo['title'] ?? 'Villa Nirawa — Private Luxury Villa in Ubud, Bali';
                 <button class="filter-btn" data-filter="garden">Garden & Nature</button>
             </div>
             <div class="gallery-masonry" id="galleryGrid">
-                <div class="gallery-item item-large" data-category="pool" onclick="openLightbox(0)">
-                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85" alt="Infinity Pool at Sunset">
-                    <div class="gallery-overlay"><span>The Pool</span><p>14m Slate Infinity Pool at Sunset</p></div>
-                </div>
-                <div class="gallery-item" data-category="bedroom" onclick="openLightbox(1)">
-                    <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=85" alt="Master Suite Bed">
-                    <div class="gallery-overlay"><span>Bedrooms</span><p>Master Suite with Garden View</p></div>
-                </div>
-                <div class="gallery-item" data-category="villa" onclick="openLightbox(2)">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Open Pavilion Dining">
-                    <div class="gallery-overlay"><span>The Villa</span><p>Teak Wood Open Lounge</p></div>
-                </div>
-                <div class="gallery-item" data-category="garden" onclick="openLightbox(3)">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85" alt="Tropical Garden">
-                    <div class="gallery-overlay"><span>Garden</span><p>Lush Private Tropical Grounds</p></div>
-                </div>
-                <div class="gallery-item" data-category="bedroom" onclick="openLightbox(4)">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85" alt="Outdoor Stone Bathtub">
-                    <div class="gallery-overlay"><span>Bedrooms</span><p>Outdoor Carved Stone Bathtub</p></div>
-                </div>
-                <div class="gallery-item" data-category="pool" onclick="openLightbox(5)">
-                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85" alt="Morning Pool View">
-                    <div class="gallery-overlay"><span>The Pool</span><p>Morning Sun over the Pool Deck</p></div>
-                </div>
+                <?php foreach ($galleryItems as $index => $item): ?>
+                    <?php
+                    $category = strtolower((string)($item['category'] ?? 'villa'));
+                    $title = (string)($item['title'] ?? 'Villa Moment');
+                    $src = (string)($item['src'] ?? '');
+                    $largeClass = !empty($item['large']) ? ' item-large' : '';
+                    ?>
+                    <div class="gallery-item<?php echo $largeClass; ?>" data-category="<?php echo htmlspecialchars($category); ?>" onclick="openLightbox(<?php echo (int)$index; ?>)">
+                        <img src="<?php echo htmlspecialchars($src); ?>" alt="<?php echo htmlspecialchars($title); ?>">
+                        <div class="gallery-overlay"><span><?php echo htmlspecialchars(ucfirst($category)); ?></span><p><?php echo htmlspecialchars($title); ?></p></div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -442,6 +433,16 @@ $title = $seo['title'] ?? 'Villa Nirawa — Private Luxury Villa in Ubud, Bali';
             </div>
         </div>
     </section>
+
+    <script>
+        window.villaConfig = <?php echo json_encode([
+            'base_rate' => (int)($villa['base_rate'] ?? 4500000),
+            'cleaning_fee' => (int)($villa['cleaning_fee'] ?? 650000),
+            'tax_fee' => (int)($villa['tax_fee'] ?? 500000),
+            'currency' => $villa['currency'] ?? 'IDR',
+        ], JSON_UNESCAPED_UNICODE); ?>;
+        window.galleryData = <?php echo json_encode($galleryItems, JSON_UNESCAPED_UNICODE); ?>;
+    </script>
 
     <!-- FAQ -->
     <section class="section faq-section" id="faq">

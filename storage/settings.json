@@ -6,6 +6,60 @@
         "og_image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85",
         "canonical_url": "https://www.villanirawa.com"
     },
+    "villa": {
+        "name": "Villa Nirawa",
+        "tagline": "A Private Place to Slow Down",
+        "location": "Sayan, Ubud, Bali, Indonesia",
+        "bedrooms": 3,
+        "max_guests": 6,
+        "bathrooms": 3,
+        "pool_size": "14m Infinity Pool",
+        "living_area": "250 m²",
+        "base_rate": 4500000,
+        "cleaning_fee": 650000,
+        "tax_fee": 500000,
+        "currency": "IDR",
+        "currency_symbol": "Rp ",
+        "hero_image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85"
+    },
+    "gallery": [
+        {
+            "src": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85",
+            "category": "pool",
+            "title": "14m Slate Infinity Pool at Sunset",
+            "large": true
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=85",
+            "category": "bedroom",
+            "title": "Master Suite with Garden View",
+            "large": false
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85",
+            "category": "villa",
+            "title": "Teak Wood Open Lounge",
+            "large": false
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85",
+            "category": "garden",
+            "title": "Lush Private Tropical Grounds",
+            "large": false
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85",
+            "category": "bedroom",
+            "title": "Outdoor Carved Stone Bathtub",
+            "large": false
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85",
+            "category": "pool",
+            "title": "Morning Sun over the Pool Deck",
+            "large": false
+        }
+    ],
     "footer": {
         "tagline": "A quiet private residence to slow down in Ubud, Bali.",
         "address": "Jalan Raya Sayan, Ubud, Bali 80571, Indonesia",

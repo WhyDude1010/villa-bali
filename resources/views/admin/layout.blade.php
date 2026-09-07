@@ -26,6 +26,14 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 Bookings
             </a>
+            <a href="/admin/villa" class="sidebar-link <?php echo str_contains(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 'villa') ? 'active' : ''; ?>">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11.5L12 4l9 7.5M5 9.5V20h14V9.5"/></svg>
+                Villa
+            </a>
+            <a href="/admin/gallery" class="sidebar-link <?php echo str_contains(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 'gallery') ? 'active' : ''; ?>">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-8 8"/></svg>
+                Gallery
+            </a>
             <a href="/admin/seo" class="sidebar-link <?php echo str_contains(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 'seo') ? 'active' : ''; ?>">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                 SEO
