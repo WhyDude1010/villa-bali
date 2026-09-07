@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$command = $argv[1] ?? 'help';
+
+echo "Laravel CLI (Villa Nirawa)\n";
+if ($command === 'serve') {
+    $port = $argv[2] ?? 8000;
+    echo "Starting Laravel development server on http://127.0.0.1:{$port}\n";
+    passthru("php -S 127.0.0.1:{$port} -t public");
+} elseif ($command === 'route:list') {
+    echo "GET  /                   -> VillaController@index\n";
+    echo "GET  /api/availability   -> BookingController@checkAvailability\n";
+    echo "POST /booking/checkout   -> BookingController@store\n";
+} else {
+    echo "Available commands: serve, route:list\n";
+}

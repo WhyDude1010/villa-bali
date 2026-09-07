@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Nirawa — Private Luxury Villa in Ubud, Bali</title>
+    <meta name="description" content="A quiet digital entrance to one special private villa in Ubud, Bali. Experience architecture, privacy, tropical slow living, and seamless direct booking.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">VILLA NIRAWA</a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#villa" class="nav-link">The Villa</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#timeline" class="nav-link">A Day Here</a>
+                <a href="#stay-mood" class="nav-link">Stay Mood</a>
+                <a href="#location" class="nav-link">Location</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openBookingModal()">Check Availability</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <span class="brand-logo">VILLA NIRAWA</span>
+            <button class="drawer-close" id="drawerClose">&times;</button>
+        </div>
+        <nav class="drawer-links">
+            <a href="#villa" onclick="closeDrawer()">The Villa</a>
+            <a href="#gallery" onclick="closeDrawer()">Gallery</a>
+            <a href="#experiences" onclick="closeDrawer()">Experiences</a>
+            <a href="#timeline" onclick="closeDrawer()">A Day Here</a>
+            <a href="#stay-mood" onclick="closeDrawer()">Stay Mood</a>
+            <a href="#location" onclick="closeDrawer()">Location</a>
+            <a href="#faq" onclick="closeDrawer()">FAQ</a>
+        </nav>
+        <div class="drawer-footer">
+            <button class="btn btn-primary btn-full" onclick="closeDrawer(); openBookingModal();">Book Your Stay</button>
+            <p class="drawer-contact">Ubud, Bali · hello@villanirawa.com</p>
+        </div>
+    </div>
+
+    <!-- Section 01: Hero -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85" alt="Villa Nirawa Pool & Tropical Garden" class="hero-img">
+        
+        <div class="hero-content">
+            <span class="hero-subtitle">Ubud, Bali · Indonesia</span>
+            <h1 class="hero-title">A Private Place<br>to Slow Down</h1>
+            <p class="hero-desc">Designed for quiet mornings, long poolside afternoons, and evenings framed by jungle breezes.</p>
+            <div class="hero-btn-group">
+                <a href="#villa" class="btn btn-secondary">Explore the Villa</a>
+                <button class="btn btn-primary" onclick="openBookingModal()">Check Availability</button>
+            </div>
+        </div>
+
+        <a href="#booking-bar" class="scroll-indicator" aria-label="Scroll Down">
+            <span>Scroll</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+    </section>
+
+    <!-- Section 02: Immediate Booking Bar -->
+    <section class="booking-bar-wrapper" id="booking-bar">
+        <div class="booking-bar">
+            <div class="bar-item" onclick="openBookingModal()">
+                <label>Check-in</label>
+                <div class="bar-value" id="barCheckIn">12 Sep 2026</div>
+            </div>
+            <div class="bar-divider"></div>
+            <div class="bar-item" onclick="openBookingModal()">
+                <label>Check-out</label>
+                <div class="bar-value" id="barCheckOut">15 Sep 2026</div>
+            </div>
+            <div class="bar-divider"></div>
+            <div class="bar-item" onclick="openBookingModal()">
+                <label>Guests</label>
+                <div class="bar-value" id="barGuests">2 Guests</div>
+            </div>
+            <div class="bar-action">
+                <button class="btn btn-primary" onclick="openBookingModal()">Check Availability</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Villa Introduction -->
+    <section class="section villa-intro" id="villa">
+        <div class="container grid-2">
+            <div class="intro-text">
+                <span class="section-tag">A Quiet Corner of Bali</span>
+                <h2 class="section-heading">Architecture Rooted in Sanctuary</h2>
+                <p class="body-text">Villa Nirawa sits quietly among Ubud's palm groves and terraced rice fields. Crafted from ironwood, lava stone, and bamboo, the residence blends seamless open-air pavilion living with intimate private suites.</p>
+                <p class="body-text">Here, time softens. Wake to birdsong, swim before morning coffee, and let the gentle rhythm of Balinese hospitality carry your stay.</p>
+                
+                <div class="intro-specs-mini">
+                    <div class="spec-mini-item">
+                        <span class="spec-mini-num">03</span>
+                        <span class="spec-mini-label">Bedrooms</span>
+                    </div>
+                    <div class="spec-mini-item">
+                        <span class="spec-mini-num">06</span>
+                        <span class="spec-mini-label">Guests</span>
+                    </div>
+                    <div class="spec-mini-item">
+                        <span class="spec-mini-num">01</span>
+                        <span class="spec-mini-label">Infinity Pool</span>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=85" alt="Villa Architecture" class="intro-img">
+                <div class="img-caption">Open-air pavilion surrounded by natural spring pools</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Specification Grid -->
+    <section class="specs-section">
+        <div class="container">
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <span class="spec-number">03</span>
+                    <h3 class="spec-title">Master Suites</h3>
+                    <p class="spec-desc">En-suite outdoor stone tubs & rainfall showers</p>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-number">06</span>
+                    <h3 class="spec-title">Maximum Guests</h3>
+                    <p class="spec-desc">Privacy designed for couples, families, or small groups</p>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-number">14m</span>
+                    <h3 class="spec-title">Infinity Pool</h3>
+                    <p class="spec-desc">Natural slate tile pool overlooking jungle valley</p>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-number">250m²</span>
+                    <h3 class="spec-title">Living Space</h3>
+                    <p class="spec-desc">Open-air teak lounge & dining pavilion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Editorial Gallery -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Visual Journal</span>
+                <h2 class="section-heading">Every Angle, Crafted with Intention</h2>
+                <p class="section-sub">Explore the atmosphere, interior spaces, and peaceful corners of Villa Nirawa.</p>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="villa">The Villa</button>
+                <button class="filter-btn" data-filter="pool">The Pool</button>
+                <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
+                <button class="filter-btn" data-filter="garden">Garden & Nature</button>
+            </div>
+
+            <div class="gallery-masonry" id="galleryGrid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item item-large" data-category="pool" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85" alt="Infinity Pool at Sunset">
+                    <div class="gallery-overlay">
+                        <span>The Pool</span>
+                        <p>14m Slate Infinity Pool at Sunset</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-category="bedroom" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=85" alt="Master Suite Bed">
+                    <div class="gallery-overlay">
+                        <span>Bedrooms</span>
+                        <p>Master Suite with Garden View</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-category="villa" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Open Pavilion Dining">
+                    <div class="gallery-overlay">
+                        <span>The Villa</span>
+                        <p>Teak Wood Open Lounge</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-category="garden" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85" alt="Tropical Garden Walkway">
+                    <div class="gallery-overlay">
+                        <span>Garden</span>
+                        <p>Lush Private Tropical Grounds</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-category="bedroom" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85" alt="Outdoor Bathing Sanctuary">
+                    <div class="gallery-overlay">
+                        <span>Bedrooms</span>
+                        <p>Outdoor Carved Stone Bathtub</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-category="pool" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85" alt="Morning Pool View">
+                    <div class="gallery-overlay">
+                        <span>The Pool</span>
+                        <p>Morning Sun over the Pool Deck</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightboxModal">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav prev" onclick="changeLightboxImg(-1)">&#10094;</button>
+        <button class="lightbox-nav next" onclick="changeLightboxImg(1)">&#10095;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Villa Detail">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Section 06: Experiences -->
+    <section class="section experiences-section" id="experiences">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Curated Stay</span>
+                <h2 class="section-heading">More Than a Place to Stay</h2>
+                <p class="section-sub">Personalized services brought directly to your villa by our dedicated hospitality staff.</p>
+            </div>
+
+            <div class="experiences-grid">
+                <div class="exp-card">
+                    <div class="exp-num">01</div>
+                    <h3 class="exp-title">Floating Breakfast</h3>
+                    <p class="exp-desc">Fresh tropical fruits, artisan sourdough, and local Balinese coffee served in your private infinity pool.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-num">02</div>
+                    <h3 class="exp-title">Private In-Villa Chef</h3>
+                    <p class="exp-desc">Multi-course traditional Balinese feast or modern farm-to-table tasting menu prepared fresh in your pavilion.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-num">03</div>
+                    <h3 class="exp-title">Balinese Wellness & Massage</h3>
+                    <p class="exp-desc">Holistic massage, flower bath, and reflexology on your poolside terrace by certified local therapists.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-num">04</div>
+                    <h3 class="exp-title">Sunset Temple & Rice Field Tour</h3>
+                    <p class="exp-desc">Guided private excursion to secret waterfalls, ancient water temples, and local artisan studios.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-num">05</div>
+                    <h3 class="exp-title">Private Yoga & Meditation</h3>
+                    <p class="exp-desc">Morning Vinyasa or gentle Hatha session led by experienced yoga masters on the open wooden deck.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-num">06</div>
+                    <h3 class="exp-title">Airport Chauffeur Transfer</h3>
+                    <p class="exp-desc">Seamless private vehicle pickup from Denpasar Airport directly to Villa Nirawa with chilled towels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: "A Day Here" Scroll Timeline -->
+    <section class="section timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Rhythm of Stay</span>
+                <h2 class="section-heading">A Day at Villa Nirawa</h2>
+                <p class="section-sub">Experience the quiet flow of morning light to starlit evening.</p>
+            </div>
+
+            <div class="timeline-interactive">
+                <div class="timeline-nav" id="timelineNav">
+                    <button class="time-slot active" onclick="selectTimeline(0)">
+                        <span class="time-val">06:30</span>
+                        <span class="time-title">Morning Light</span>
+                    </button>
+                    <button class="time-slot" onclick="selectTimeline(1)">
+                        <span class="time-val">08:30</span>
+                        <span class="time-title">Breakfast in Garden</span>
+                    </button>
+                    <button class="time-slot" onclick="selectTimeline(2)">
+                        <span class="time-val">11:30</span>
+                        <span class="time-title">Pool & Sunlight</span>
+                    </button>
+                    <button class="time-slot" onclick="selectTimeline(3)">
+                        <span class="time-val">15:00</span>
+                        <span class="time-title">Slow Afternoon</span>
+                    </button>
+                    <button class="time-slot" onclick="selectTimeline(4)">
+                        <span class="time-val">17:45</span>
+                        <span class="time-title">Golden Hour</span>
+                    </button>
+                    <button class="time-slot" onclick="selectTimeline(5)">
+                        <span class="time-val">20:00</span>
+                        <span class="time-title">Candlelight Evening</span>
+                    </button>
+                </div>
+
+                <div class="timeline-card" id="timelineCard">
+                    <div class="timeline-card-content">
+                        <span class="time-display" id="timelineTime">06:30 AM</span>
+                        <h3 class="timeline-heading" id="timelineHeading">Morning Light over the Jungle</h3>
+                        <p class="timeline-text" id="timelineText">Wake softly as gentle sunlight filters through the banana leaves. Hear the faint distant chime of temple bells as mist rises from the valley.</p>
+                    </div>
+                    <div class="timeline-card-media">
+                        <img id="timelineImg" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85" alt="Morning Light">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 08: Signature Feature — Stay Mood Finder -->
+    <section class="section mood-section" id="stay-mood">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Signature Experience</span>
+                <h2 class="section-heading">Curate Your Ideal Stay</h2>
+                <p class="section-sub">Select your desired mood to explore tailored itineraries and host recommendations.</p>
+            </div>
+
+            <div class="mood-selector">
+                <button class="mood-btn active" onclick="selectMood('romantic', this)">Romantic Escape</button>
+                <button class="mood-btn" onclick="selectMood('slow', this)">Slow Mornings & Relaxation</button>
+                <button class="mood-btn" onclick="selectMood('wellness', this)">Wellness & Renewal</button>
+                <button class="mood-btn" onclick="selectMood('family', this)">Family & Friends</button>
+            </div>
+
+            <div class="mood-result-card" id="moodResult">
+                <div class="mood-content">
+                    <span class="mood-badge" id="moodBadge">For Couples & Anniversaries</span>
+                    <h3 class="mood-title" id="moodTitle">The Romantic Escape</h3>
+                    <p class="mood-desc" id="moodDesc">Uninterrupted intimacy surrounded by lush tropical nature. Private poolside dining under candlelight, couples aromatherapy, and serene mornings.</p>
+                    <ul class="mood-highlights" id="moodHighlights">
+                        <li>Floating Breakfast served in private pool</li>
+                        <li>Candlelight multi-course dinner under the stars</li>
+                        <li>Sunset champagne on the valley terrace</li>
+                        <li>Private couples Balinese massage session</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openBookingModal()">Plan This Stay</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 09: Signature Feature — Plan Your Stay Itinerary Builder -->
+    <section class="section itinerary-section" id="itinerary">
+        <div class="container grid-2">
+            <div class="itinerary-intro">
+                <span class="section-tag">Interactive Planner</span>
+                <h2 class="section-heading">Design Your Personal Days</h2>
+                <p class="body-text">Customize your stay by choosing available experiences. We'll automatically organize them into a seamless daily schedule for your host team upon booking.</p>
+                
+                <div class="itinerary-options">
+                    <h4>Morning Options</h4>
+                    <label class="check-option"><input type="checkbox" checked data-name="Floating Pool Breakfast" data-time="08:00 AM"> Floating Pool Breakfast</label>
+                    <label class="check-option"><input type="checkbox" data-name="Morning Yoga on Deck" data-time="07:00 AM"> Morning Yoga on Deck</label>
+                    
+                    <h4>Afternoon Options</h4>
+                    <label class="check-option"><input type="checkbox" checked data-name="Balinese Herbal Massage" data-time="02:00 PM"> Balinese Herbal Massage</label>
+                    <label class="check-option"><input type="checkbox" data-name="Ubud Artisan & Market Tour" data-time="03:30 PM"> Ubud Artisan & Market Tour</label>
+
+                    <h4>Evening Options</h4>
+                    <label class="check-option"><input type="checkbox" checked data-name="Private Chef Tasting Dinner" data-time="07:30 PM"> Private Chef Tasting Dinner</label>
+                    <label class="check-option"><input type="checkbox" data-name="Stargazing & Poolside Cocktails" data-time="09:00 PM"> Stargazing & Cocktails</label>
+                </div>
+            </div>
+
+            <div class="itinerary-preview-box">
+                <div class="itinerary-card">
+                    <div class="itinerary-card-header">
+                        <h3>YOUR BALI DAY ITINERARY</h3>
+                        <span>Villa Nirawa Guest Service</span>
+                    </div>
+                    <div class="itinerary-list" id="itineraryList">
+                        <!-- Dynamic items -->
+                    </div>
+                    <div class="itinerary-footer">
+                        <button class="btn btn-primary btn-full" onclick="openBookingModal()">Request This Itinerary With Booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Location & Curated Bali Guide -->
+    <section class="section location-section" id="location">
+        <div class="container">
+            <div class="grid-2">
+                <div class="location-text">
+                    <span class="section-tag">Where We Are</span>
+                    <h2 class="section-heading">Hidden, Yet Connected</h2>
+                    <p class="body-text">Villa Nirawa is tucked peacefully in Sayan, Ubud—minutes away from world-class dining, traditional artisan villages, and sacred rice terraces, while preserving complete secluded privacy.</p>
+
+                    <div class="distance-grid">
+                        <div class="distance-item">
+                            <span class="dist-time">12 min</span>
+                            <span class="dist-place">Ubud Center & Palace</span>
+                        </div>
+                        <div class="distance-item">
+                            <span class="dist-time">15 min</span>
+                            <span class="dist-place">Tegallalang Rice Terraces</span>
+                        </div>
+                        <div class="distance-item">
+                            <span class="dist-time">35 min</span>
+                            <span class="dist-place">Black Sand Beaches</span>
+                        </div>
+                        <div class="distance-item">
+                            <span class="dist-time">70 min</span>
+                            <span class="dist-place">Denpasar Airport (DPS)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-guide">
+                    <h3 class="guide-title">Our Bali — Curated Host Guide</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <span class="guide-cat">EAT</span>
+                            <div>
+                                <strong>Locavore Next Door & Alchemy</strong>
+                                <p>Organic plant-focused dining 10 minutes away.</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <span class="guide-cat">EXPLORE</span>
+                            <div>
+                                <strong>Campuhan Ridge Walk</strong>
+                                <p>Scenic morning hilltop trail with panoramic valley views.</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <span class="guide-cat">CULTURE</span>
+                            <div>
+                                <strong>Tirta Empul Holy Water Temple</strong>
+                                <p>Sacred purification springs surrounded by ancient banyan trees.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 11: Reviews & Trust Signals -->
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="editorial-quote">
+                <div class="quote-stars">★★★★★</div>
+                <p class="quote-text">“Some places are beautiful. Villa Nirawa made us forget to check the time. The pool at golden hour and the gentle care of the host team created an unforgettable week.”</p>
+                <span class="quote-author">— Sarah & Daniel · London, UK</span>
+                <span class="quote-meta">Stayed September 2026 · Verified Stay</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 12: FAQ Accordion -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Clarity & Trust</span>
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What time is check-in and check-out?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Check-in is from 3:00 PM onwards, and check-out is by 11:00 AM. We offer flexible arrival and departure arrangements upon request based on availability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is breakfast included in the stay rate?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, daily gourmet breakfast for all guests (including option for floating breakfast) is included in your direct booking rate.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is the villa completely private?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. You have exclusive private access to the entire 3-bedroom villa, private pool, gardens, and lounge pavilion during your booking.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What is the direct booking cancellation policy?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Free cancellation up to 14 days prior to check-in. For cancellations within 14 days, bookings can be rescheduled for any available date within 12 months without penalty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <span class="brand-logo footer-logo">VILLA NIRAWA</span>
+                <p class="footer-desc">A quiet private residence to slow down in Ubud, Bali.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#villa">The Villa</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#location">Location</a>
+            </div>
+            <div class="footer-col">
+                <h4>Reservation</h4>
+                <a href="javascript:void(0)" onclick="openBookingModal()">Check Availability</a>
+                <a href="#faq">Stay Policies</a>
+                <a href="#location">Arrival Info</a>
+            </div>
+            <div class="footer-col">
+                <h4>Direct Contact</h4>
+                <p>Jalan Raya Sayan, Ubud, Bali</p>
+                <p>Email: hello@villanirawa.com</p>
+                <p>WhatsApp: +62 812 3456 7890</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 Villa Nirawa Bali. All rights reserved. Direct Booking System.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky Bottom CTA for Mobile -->
+    <div class="mobile-sticky-cta" id="stickyCta">
+        <div class="cta-price">
+            <span class="price-val">€250</span>
+            <span class="price-unit">/ night</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal()">Book Stay</button>
+    </div>
+
+    <!-- Booking Engine Modal (3-Step Flow) -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="modal-overlay" onclick="closeBookingModal()"></div>
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+            
+            <!-- Step Indicators -->
+            <div class="modal-steps">
+                <div class="step-indicator active" id="stepInd1">1. Dates & Guests</div>
+                <div class="step-indicator" id="stepInd2">2. Guest Details</div>
+                <div class="step-indicator" id="stepInd3">3. Confirmation</div>
+            </div>
+
+            <!-- Modal Step 1: Dates & Guests -->
+            <div class="modal-step-content active" id="modalStep1">
+                <h3 class="modal-title">Select Stay Dates</h3>
+                <p class="modal-sub">Villa Nirawa · Exclusive Individual Villa</p>
+                
+                <div class="booking-inputs-grid">
+                    <div class="input-group">
+                        <label>Check-in Date</label>
+                        <input type="date" id="inputCheckIn" onchange="updatePriceCalculation()">
+                    </div>
+                    <div class="input-group">
+                        <label>Check-out Date</label>
+                        <input type="date" id="inputCheckOut" onchange="updatePriceCalculation()">
+                    </div>
+                    <div class="input-group">
+                        <label>Number of Guests</label>
+                        <select id="inputGuests" onchange="updatePriceCalculation()">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests (Max)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Availability Calendar Mock View -->
+                <div class="calendar-wrapper">
+                    <div class="calendar-header">
+                        <span>September 2026</span>
+                        <span class="legend"><span class="dot available"></span> Available <span class="dot booked"></span> Booked</span>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="cal-day head">M</div><div class="cal-day head">T</div><div class="cal-day head">W</div><div class="cal-day head">T</div><div class="cal-day head">F</div><div class="cal-day head">S</div><div class="cal-day head">S</div>
+                        <div class="cal-day booked">1</div><div class="cal-day booked">2</div><div class="cal-day booked">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div>
+                        <div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day selected">12</div><div class="cal-day selected">13</div><div class="cal-day selected">14</div><div class="cal-day">15</div>
+                        <div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div>
+                    </div>
+                </div>
+
+                <!-- Price Summary Box -->
+                <div class="price-summary-box">
+                    <div class="price-row">
+                        <span id="priceNightLabel">€250 × 3 nights</span>
+                        <span id="priceNightTotal">€750</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Villa Preparation & Cleaning</span>
+                        <span>€40</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Local Hospitality Tax & Service</span>
+                        <span>€35</span>
+                    </div>
+                    <div class="price-row total-row">
+                        <span>Total Due</span>
+                        <span id="priceGrandTotal">€825</span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-full" onclick="goToStep(2)">Continue to Guest Details</button>
+                </div>
+            </div>
+
+            <!-- Modal Step 2: Guest Details -->
+            <div class="modal-step-content" id="modalStep2">
+                <h3 class="modal-title">Guest Details</h3>
+                <p class="modal-sub">Please enter details for your reservation summary.</p>
+                
+                <form id="guestForm" onsubmit="event.preventDefault(); goToStep(3);">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>First Name</label>
+                            <input type="text" id="guestFirstName" required placeholder="Sarah">
+                        </div>
+                        <div class="input-group">
+                            <label>Last Name</label>
+                            <input type="text" id="guestLastName" required placeholder="Jenkins">
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" id="guestEmail" required placeholder="sarah@example.com">
+                        </div>
+                        <div class="input-group">
+                            <label>Phone / WhatsApp</label>
+                            <input type="tel" id="guestPhone" required placeholder="+44 7911 123456">
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-top: 15px;">
+                        <label>Special Requests or Dietary Requirements (Optional)</label>
+                        <textarea id="guestNotes" rows="3" placeholder="Airport transfer flight details, honeymoon celebration, dietary preferences..."></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+                        <button type="submit" class="btn btn-primary">Confirm & Proceed to Payment</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal Step 3: Confirmation -->
+            <div class="modal-step-content" id="modalStep3">
+                <div class="confirmation-box">
+                    <div class="confirm-icon">✓</div>
+                    <h3 class="modal-title">Your Escape is Reserved!</h3>
+                    <p class="modal-sub">We can't wait to welcome you to Villa Nirawa, Bali.</p>
+                    
+                    <div class="reservation-ticket">
+                        <div class="ticket-header">
+                            <span>RESERVATION SUMMARY</span>
+                            <span class="ticket-id" id="ticketId">#BV-10291</span>
+                        </div>
+                        <div class="ticket-body">
+                            <p><strong>Property:</strong> Villa Nirawa (3-Bedroom Private Residence)</p>
+                            <p><strong>Dates:</strong> <span id="confirmDates">12 Sep 2026 — 15 Sep 2026</span> (<span id="confirmNights">3</span> nights)</p>
+                            <p><strong>Guest:</strong> <span id="confirmName">Sarah Jenkins</span> (<span id="confirmGuests">2</span> Guests)</p>
+                            <p><strong>Total Amount:</strong> <span id="confirmTotal">€825</span> (Paid in Full / Instant Confirmation)</p>
+                        </div>
+                    </div>
+
+                    <p class="confirm-note">A confirmation email and arrival guide have been sent to your email address.</p>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-full" onclick="closeBookingModal()">Done & Return to Site</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
